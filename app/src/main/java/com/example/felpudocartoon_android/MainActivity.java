@@ -1,7 +1,10 @@
 package com.example.felpudocartoon_android;
 
+import android.content.Context;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
@@ -10,6 +13,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -18,6 +23,13 @@ import androidx.core.view.WindowInsetsCompat;
 public class MainActivity extends AppCompatActivity {
 
     String[] listaNomes = {"Felpudo", "Fofura", "Lesmo", "Bugado", "Uruca", "Racing", "iOS",
+            "Android", "RealidadeAumentada", "Sound FX", "3D Studio Max", "Games"};
+
+    int[] listaIcones = {R.drawable.felpudo, R.drawable.fofura, R.drawable.lesmo, R.drawable.bugado,
+            R.drawable.uruca, R.drawable.carrinho, R.drawable.ios, R.drawable.android,
+            R.drawable.realidade_aumentada, R.drawable.sound_fx, R.drawable.max, R.drawable.games};
+
+    String[] listaDescricao = {"Felpudo", "Fofura", "Lesmo", "Bugado", "Uruca", "Racing", "iOS",
             "Android", "RealidadeAumentada", "Sound FX", "3D Studio Max", "Games"};
 
     @Override
@@ -31,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        ArrayAdapter<String> meuAdaptador = new ArrayAdapter<>(getApplicationContext(),
+       /* ArrayAdapter<String> meuAdaptador = new ArrayAdapter<>(getApplicationContext(),
                 android.R.layout.simple_list_item_1, android.R.id.text1, listaNomes);
 
         ListView minhaLista = findViewById(R.id.minhaLista);
@@ -44,8 +56,18 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, ""+position, Toast.LENGTH_SHORT).show();
             }
         });
+*/
 
+        ListView minhaLista = findViewById(R.id.minhaLista);
+        MeuAdaptador meuAdaptador = new MeuAdaptador(getApplicationContext(), R.layout.minha_celula);
 
+        int i=0;
+        for(String nome:listaNomes){
+            DadosPersonagem dadosPersonagem = new DadosPersonagem(listaIcones[i], listaNomes[i], listaDescricao[i]);
+            meuAdaptador.add(dadosPersonagem);
+            i++;
+        }
+        minhaLista.setAdapter(meuAdaptador);
     }
 }
 class ViewPersonagem{
@@ -74,5 +96,57 @@ class DadosPersonagem{
 
     public String getDescricao() {
         return descricao;
+    }
+}
+
+
+class MeuAdaptador extends ArrayAdapter{
+
+    public MeuAdaptador(@NonNull Context context, int resource) {
+        super(context, resource);
+    }
+
+    @Override
+    public void add(@Nullable Object object) {
+        super.add(object);
+    }
+
+    @Override
+    public int getCount() {
+        return super.getCount();
+    }
+
+    @NonNull
+    @Override
+    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+
+        View minhaView;
+        minhaView = convertView;
+        ViewPersonagem viewPersonagem;
+
+        if(convertView == null){
+            LayoutInflater inflater = (LayoutInflater) this.getContext().
+                    getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            minhaView = inflater.inflate(R.layout.minha_celula,parent,false);
+
+            viewPersonagem = new ViewPersonagem();
+            viewPersonagem.icone = (ImageView) minhaView.findViewById(R.id.meuIcone);
+            viewPersonagem.titulo = (TextView) minhaView.findViewById(R.id.meuTitulo);
+            viewPersonagem.descricao = (TextView) minhaView.findViewById(R.id.meuDescricao);
+        } else{
+            viewPersonagem = (ViewPersonagem) minhaView.getTag();
+        }
+
+        DadosPersonagem dadosPersonagem;
+        dadosPersonagem = (DadosPersonagem) this.getItem(position);
+
+        assert dadosPersonagem != null;
+        viewPersonagem.icone.setImageResource(dadosPersonagem.getIcone());
+        viewPersonagem.titulo.setText(dadosPersonagem.getNome());
+        viewPersonagem.titulo.setText(dadosPersonagem.getNome());
+
+
+
+        return minhaView;
     }
 }
