@@ -7,25 +7,45 @@
 
     <ImageView
         android:id="@+id/meuIcone"
-        android:layout_width="185dp"
-        android:layout_height="141dp"
-        app:srcCompat="@drawable/felpudo"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="49dp" />
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/corFundoIcone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/felpudo" />
 
     <TextView
         android:id="@+id/meuTitulo"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@color/corFundoTexto"
+        android:fontFamily="casual"
         android:text="TextView"
-        tools:layout_editor_absoluteX="279dp"
-        tools:layout_editor_absoluteY="49dp" />
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+        android:textSize="35sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/meuIcone"
+        app:layout_constraintTop_toTopOf="@+id/meuIcone" />
 
     <TextView
         android:id="@+id/meuDescricao"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@color/corFundoDescricao"
+        android:fontFamily="cursive"
         android:text="TextView"
-        tools:layout_editor_absoluteX="279dp"
-        tools:layout_editor_absoluteY="118dp" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textSize="21sp"
+        app:layout_constraintBottom_toBottomOf="@+id/meuIcone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/meuIcone"
+        app:layout_constraintTop_toBottomOf="@+id/meuTitulo" />
 </androidx.constraintlayout.widget.ConstraintLayout>

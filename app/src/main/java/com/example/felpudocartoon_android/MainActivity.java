@@ -62,10 +62,21 @@ public class MainActivity extends AppCompatActivity {
         MeuAdaptador meuAdaptador = new MeuAdaptador(getApplicationContext(), R.layout.minha_celula);
 
         int i=0;
+
         for(String nome:listaNomes){
-            DadosPersonagem dadosPersonagem = new DadosPersonagem(listaIcones[i], listaNomes[i], listaDescricao[i]);
-            meuAdaptador.add(dadosPersonagem);
-            i++;
+            try {
+                if(i < listaNomes.length){
+                    DadosPersonagem dadosPersonagem = new DadosPersonagem(listaIcones[i], listaNomes[i], listaDescricao[i]);
+                    meuAdaptador.add(dadosPersonagem);
+                    i++;
+                }
+                else {
+                    break;
+                }
+            } catch (Exception e){
+                Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+
         }
         minhaLista.setAdapter(meuAdaptador);
     }
