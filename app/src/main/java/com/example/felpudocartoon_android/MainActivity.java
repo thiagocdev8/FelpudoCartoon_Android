@@ -90,7 +90,7 @@ class DadosPersonagem{
         return icone;
     }
 
-    public String getNome() {
+    public String getTitulo() {
         return titulo;
     }
 
@@ -140,12 +140,10 @@ class MeuAdaptador extends ArrayAdapter{
         DadosPersonagem dadosPersonagem;
         dadosPersonagem = (DadosPersonagem) this.getItem(position);
 
-        assert dadosPersonagem != null;
+
         viewPersonagem.icone.setImageResource(dadosPersonagem.getIcone());
-        viewPersonagem.titulo.setText(dadosPersonagem.getNome());
-        viewPersonagem.titulo.setText(dadosPersonagem.getNome());
-
-
+        viewPersonagem.titulo.setText(dadosPersonagem.getTitulo());
+        viewPersonagem.descricao.setText(dadosPersonagem.getDescricao());
 
         return minhaView;
     }
