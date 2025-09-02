@@ -4,7 +4,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -44,5 +46,33 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+    }
+}
+class ViewPersonagem{
+    ImageView icone;
+    TextView titulo;
+    TextView descricao;
+}
+class DadosPersonagem{
+    private int icone;
+    private String titulo;
+    private String descricao;
+
+    public DadosPersonagem(int icone, String titulo, String descricao) {
+        this.icone = icone;
+        this.titulo = titulo;
+        this.descricao = descricao;
+    }
+
+    public int getIcone() {
+        return icone;
+    }
+
+    public String getNome() {
+        return titulo;
+    }
+
+    public String getDescricao() {
+        return descricao;
     }
 }
