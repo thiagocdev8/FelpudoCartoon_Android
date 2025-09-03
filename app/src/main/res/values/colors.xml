@@ -4,8 +4,9 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     
-    <color name="corFundo">#42eb0f</color>
-    <color name="corFundoIcone">#42eb0f</color>
-    <color name="corFundoTexto">#75A463</color>
-    <color name="corFundoDescricao">#E68CC9</color>
+
+    <color name="corFundoLista">#FFF8B5</color>
+    <color name="corFundoIcone">#FF9F43</color>
+    <color name="corFundoTexto">#E2DADA</color>
+    <color name="corFundoDescricao">#C8FFD4</color>
 </resources>

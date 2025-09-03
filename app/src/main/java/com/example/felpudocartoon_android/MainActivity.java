@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -80,6 +79,7 @@ public class MainActivity extends AppCompatActivity {
         }
         minhaLista.setAdapter(meuAdaptador);
     }
+
 }
 class ViewPersonagem{
     ImageView icone;
@@ -111,14 +111,14 @@ class DadosPersonagem{
 }
 
 
-class MeuAdaptador extends ArrayAdapter{
+class MeuAdaptador extends ArrayAdapter<DadosPersonagem>{
 
-    public MeuAdaptador(@NonNull Context context, int resource) {
-        super(context, resource);
+    public MeuAdaptador(@NonNull Context context, int data) {
+        super(context, R.layout.minha_celula, data);
     }
 
     @Override
-    public void add(@Nullable Object object) {
+    public void add(@Nullable DadosPersonagem object) {
         super.add(object);
     }
 
@@ -144,6 +144,8 @@ class MeuAdaptador extends ArrayAdapter{
             viewPersonagem.icone = (ImageView) minhaView.findViewById(R.id.meuIcone);
             viewPersonagem.titulo = (TextView) minhaView.findViewById(R.id.meuTitulo);
             viewPersonagem.descricao = (TextView) minhaView.findViewById(R.id.meuDescricao);
+
+            minhaView.setTag(viewPersonagem);
         } else{
             viewPersonagem = (ViewPersonagem) minhaView.getTag();
         }
