@@ -25,14 +25,25 @@ import androidx.core.view.WindowInsetsCompat;
 public class MainActivity extends AppCompatActivity {
 
     String[] listaNomes = {"Felpudo", "Fofura", "Lesmo", "Bugado", "Uruca", "Racing", "iOS",
-            "Android", "RealidadeAumentada", "Sound FX", "3D Studio Max", "Games"};
+            "Android", "Realidade Aumentada", "Sound FX", "3D Studio Max", "Games"};
 
     int[] listaIcones = {R.drawable.felpudo, R.drawable.fofura, R.drawable.lesmo, R.drawable.bugado,
             R.drawable.uruca, R.drawable.carrinho, R.drawable.ios, R.drawable.android,
             R.drawable.realidade_aumentada, R.drawable.sound_fx, R.drawable.max, R.drawable.games};
 
-    String[] listaDescricao = {"Felpudo", "Fofura", "Lesmo", "Bugado", "Uruca", "Racing", "iOS",
-            "Android", "RealidadeAumentada", "Sound FX", "3D Studio Max", "Games"};
+    String[] listaDescricao = {"Um amigo leal e fofo, que traz a suavidade das nuvens para o Reino do Arco-Íris.",
+            "Um pequeno desejo que irradia alegria e bondade.",
+            "Calmo e tranquilo, ele se move devagar, mas com um propósito.",
+            "Um desejo travesso e imprevisível.",
+            "Uma criatura misteriosa que prefere a solidão.",
+            "A emoção da velocidade e da adrenalina.",
+            "Um ícone de elegância e fluidez.",
+            "A liberdade e a personalização em sua forma mais pura.",
+            "Uma visão mágica do mundo real.",
+            "A melodia de uma aventura.",
+            "O mestre da criação.",
+            "A diversão sem limites."};
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -109,9 +120,9 @@ class ViewPersonagem{
     TextView descricao;
 }
 class DadosPersonagem{
-    private int icone;
-    private String titulo;
-    private String descricao;
+    private final int icone;
+    private final String titulo;
+    private final String descricao;
 
     public DadosPersonagem(int icone, String titulo, String descricao) {
         this.icone = icone;
