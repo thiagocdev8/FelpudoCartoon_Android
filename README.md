@@ -38,11 +38,13 @@ Execute o aplicativo:
 Execute o app em um emulador ou em um dispositivo físico.
 
 📸 Imagens do Projeto
+
+
 <img width="395" height="855" alt="image" src="https://github.com/user-attachments/assets/87163cd1-8cbb-45b8-abd7-f05ed45acace" />
 <img width="394" height="874" alt="image" src="https://github.com/user-attachments/assets/3935a644-2326-4b7d-86e3-8c6998f7d8ad" />
 <img width="391" height="859" alt="image" src="https://github.com/user-attachments/assets/9f248260-258c-4d35-956b-27f1ad15e728" />
 
 
-Licenciada pelo Google
+
 👨‍💼 Autor
 Thiago C.
