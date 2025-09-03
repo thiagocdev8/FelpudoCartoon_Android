@@ -1,10 +1,12 @@
 package com.example.felpudocartoon_android;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -14,6 +16,7 @@ import android.widget.Toast;
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -47,18 +50,20 @@ public class MainActivity extends AppCompatActivity {
 
         ListView minhaLista = findViewById(R.id.minhaLista);
         minhaLista.setAdapter(meuAdaptador);
-
+*/
+        ListView minhaLista = findViewById(R.id.minhaLista);
+        MeuAdaptador meuAdaptador = new MeuAdaptador(getApplicationContext(), R.layout.minha_celula);
 
         minhaLista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(MainActivity.this, ""+position, Toast.LENGTH_SHORT).show();
+                DadosPersonagem dadosPersonagem = (DadosPersonagem) parent.getItemAtPosition(position);
+                criarAlerta(dadosPersonagem.getTitulo(), dadosPersonagem.getDescricao(), dadosPersonagem.getIcone());
             }
         });
-*/
 
-        ListView minhaLista = findViewById(R.id.minhaLista);
-        MeuAdaptador meuAdaptador = new MeuAdaptador(getApplicationContext(), R.layout.minha_celula);
+
+
 
         int i=0;
 
@@ -79,7 +84,24 @@ public class MainActivity extends AppCompatActivity {
         }
         minhaLista.setAdapter(meuAdaptador);
     }
+    public void criarAlerta(String title, String message, int icon){
+        AlertDialog.Builder meuAlerta = new AlertDialog.Builder(MainActivity.this);
 
+        meuAlerta.setTitle(title);
+        meuAlerta.setMessage(message);
+        meuAlerta.setCancelable(true);
+        meuAlerta.setIcon(icon);
+
+        meuAlerta.setPositiveButton("Confirma", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Toast.makeText(MainActivity.this, "Confirma!", Toast.LENGTH_SHORT).show();
+            }
+        });
+        meuAlerta.create();
+        meuAlerta.show();
+
+    }
 }
 class ViewPersonagem{
     ImageView icone;
